@@ -1,0 +1,125 @@
+
+body {
+    color: black;
+    background-attachment: fixed;
+    animation: fadeIn 1s ease-in-out;
+    background-image: url(../landing-page-burger/esferas.jpg);
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    animation: fadeIn 1s ease-in-out;
+
+}
+
+
+.stars {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    animation: twinkle 3s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+}
+
+.pokemonBtn:hover {
+    background-color: aqua;
+}
+
+.pokemonBtn:active {
+    background-color: yellowgreen;
+}
+
+div > p {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bio .bold {
+    color: blueviolet;
+}
+
+.hello1 .bold{
+    color: green;
+}
+@keyframes twinkle {
+     
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+h1 {
+    color: orangered;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.character-style {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: chocolate;
+}
+
+#img-rick {
+    border: 2px solid blueviolet;
+}
+
+.button-green {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: green;
+    color: white;
+}
+
+#img-dragon {
+    width: 150px;
+    height: auto;
+}
+
+#dragon-ball-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+
+.character-border{
+    border: 1px solid orange;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+.character-container {
+    display: none;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+    float: right;
+}

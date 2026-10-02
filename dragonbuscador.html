@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon ball z</title>
+    <script src="practice-js.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/31862d6554.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1>Dragon ball personajes</h1>
+    <input type="text" id="input-search" placeholder="buscar personaje" oninput="filterCharacter()">
+    <div >
+       <div class="container-dragon" id="dragon-ball-container"></div>
+    </div>
+    <div id="main-modal" class="modal">
+        <div id="modal-content">
+            <a href="" class="close"><i class="fa-solid fa-xmark"></i></a>
+            <p id="description-character">Some Text here</p> 
+        </div>
+    </div>
+    <br>
+    <button class="button-green"  id="btn-dragon">Traer personaje</button>
+</body>
+</html>
