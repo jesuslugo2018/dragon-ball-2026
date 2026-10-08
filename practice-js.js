@@ -108,9 +108,13 @@ async function fetchDataRick() {
     function showDescriptionCharacter(value){
         const containerModal = document.getElementById('main-modal');
         const descriptionText = document.getElementById('description-character');
+        const closeModalButton = document.getElementById('close-modal');
         containerModal.style.display = "block";
         descriptionText.innerText = value.description;
-
-        
+        closeModalButton.addEventListener('click' , ()=> {
+            containerModal.style.display = 'none';
+        })  
     }
+
+    
 
