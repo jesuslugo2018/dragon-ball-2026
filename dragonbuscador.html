@@ -10,9 +10,14 @@
 
 </head>
 <body>
-    <h1>Dragon ball personajes</h1>
-    <input type="text" id="input-search" placeholder="buscar personaje" oninput="filterCharacter()">
-    <div >
+    <h1 class="text-title">Dragon ball personajes</h1>
+    <div class="search-container">
+        
+        <input type="text" id="input-search" placeholder="Search characters ...." oninput="filterCharacter()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    
+    <div class="card-main-container">
        <div class="container-dragon" id="dragon-ball-container"></div>
     </div>
     <div id="main-modal" class="modal">
@@ -22,6 +27,5 @@
         </div>
     </div>
     <br>
-    <button class="button-green"  id="btn-dragon">Traer los personaje</button>
 </body>
 </html>

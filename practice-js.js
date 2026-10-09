@@ -1,6 +1,6 @@
 const API = 'https://pokeapi.co/api/v2/pokemon/ditto';
 const APIRICK = 'https://rickandmortyapi.com/api/character';
-const DRAGONAPI = 'https://dragonball-api.com/api/characters';
+const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=26';
 
 
 async function fetchData() {
@@ -49,7 +49,7 @@ async function fetchDataRick() {
     const container = document.getElementById('dragon-ball-container');
     const inputSearch = document.getElementById('input-search');
 
-    btnDragon.addEventListener('click', async () => {
+   /* btnDragon.addEventListener('click', async () => {
         const response = await fetch(DRAGONAPI);
         const dataResponse = await response.json();
         dataResponse.items.forEach(character => {
@@ -63,7 +63,7 @@ async function fetchDataRick() {
                 ;
             container.appendChild(card); // permite crear un nuevo elemento o nodo a la lista, es decir es el que va a hacer que las tarjetas se ordenen en forma de lista
         });
-    })
+    })*/
 
      function showResult(results){
         console.log('esto trae el results ==>', results);
