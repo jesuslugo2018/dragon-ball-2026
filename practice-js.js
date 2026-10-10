@@ -1,53 +1,9 @@
-const API = 'https://pokeapi.co/api/v2/pokemon/ditto';
-const APIRICK = 'https://rickandmortyapi.com/api/character';
-const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=26';
+const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=30';
 
 
-async function fetchData() {
-
-    try {
-        const pokemonName = document.getElementById("pokemonName").value;
-        console.log(pokemonName);
-        
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-
-        if (!response.ok) {
-            
-            throw new Error('Could not fetch resource');
-        }
-
-        const data = await response.json();
-        console.log(data);
-        const pokemonImgData = data.sprites.other.home.front_default;
-        const pokeImg = document.getElementById('pokemon-picture');
-        pokeImg.src = pokemonImgData;
-        
-    } 
-    catch(errr) {
-        console.error(errr);
-    }
-    
-}
-
-async function fetchDataRick() {
-        const characterImg = document.getElementById('img-rick');
-        const characterName = document.getElementById('character-name');
-        const response = await fetch(APIRICK);
-        if(!response.ok) {
-           throw new Error('Could not fetch resource');
-        }
-        const dataResponse = await response.json();
-        //console.log('Esto trae la respuesta -->', dataResponse.results[0].name );
-        characterName.textContent =  dataResponse.results[1].name;
-        characterImg.src = dataResponse.results[1].image; 
-
-        
-    }
-
-
-    const btnDragon = document.getElementById('btn-dragon');
-    const container = document.getElementById('dragon-ball-container');
-    const inputSearch = document.getElementById('input-search');
+const btnDragon = document.getElementById('btn-dragon');
+const container = document.getElementById('dragon-ball-container');
+const inputSearch = document.getElementById('input-search');
 
    /* btnDragon.addEventListener('click', async () => {
         const response = await fetch(DRAGONAPI);
