@@ -26,6 +26,12 @@
             <p id="description-character">Some Text here</p> 
         </div>
     </div>
-    <br>
+    <ul class="pagination-dragon">
+        <li><button>&laquo;</button></li>
+        <li><button class="btn-page" data-page="1" onclick="changePage()">1</button></li>
+        <li><button class="btn-page" data-page="2" onclick="changePage()">2</button></li>
+        <li><button class="btn-page" data-page="3" onclick="changePage()">3</button></li>
+        <li><button  id="next-page" onclick="changePage()">&raquo;</button></li>
+    </ul>
 </body>
 </html>

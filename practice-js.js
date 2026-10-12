@@ -72,5 +72,26 @@ const inputSearch = document.getElementById('input-search');
         })  
     }
 
+    function changePage() {
+        const pagesBtn = document.querySelectorAll('.btn-page'); // Este querySelectorAll trae un array con todo los botones que coincidan con la clase que esta asociada a ellos
+       // console.log(pagesBtn);
+        pagesBtn.forEach(currentBtn => {
+            currentBtn.addEventListener('click',async (event) => {
+                //console.log(event.currentTarget.dataset.page);
+                const currentPage = event.currentTarget.dataset.page; // el currentTarget permite especificar o determinar cual es el boton al que estamos haciendo click
+                const DRAPI = `https://dragonball-api.com/api/characters?page=${currentPage}&limit=20`;
+                const response = await fetch(DRAPI);
+                const dataResponsePage = await response.json();
+                console.log('Eso trajo nuestra respuesta de pagina =>', dataResponsePage);
+                
+                
+            })
+            
+        })
+        
+            
+            
+    }
+
     
 

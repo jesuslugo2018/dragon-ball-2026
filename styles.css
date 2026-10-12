@@ -153,3 +153,23 @@ h1 {
 .card-main-container {
     margin-top: 15px;
 }
+
+.pagination-dragon{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    top: auto;
+    text-align: center;
+    list-style: none;
+}
+
+.pagination-dragon li a  {
+  display: block; /* let links fill the list item */
+  padding: 8px 12px;
+  text-decoration: none;
+  border: 1px solid gray;
+  color: black;  
+  margin: 0 4px;
+  border-radius: 5px; /* add rounded borders */
+}
