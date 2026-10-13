@@ -1,45 +1,28 @@
 const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=30';
 
-
 const btnDragon = document.getElementById('btn-dragon');
 const container = document.getElementById('dragon-ball-container');
 const inputSearch = document.getElementById('input-search');
 
-   /* btnDragon.addEventListener('click', async () => {
+     async function getCharacters() {
         const response = await fetch(DRAGONAPI);
         const dataResponse = await response.json();
-        dataResponse.items.forEach(character => {
+        dataResponse.items.forEach( character => {
             const card = document.createElement("div");
             card.classList.add('character-border'); // propiedad classList sirve para agregar o quitar clases CSS de un elemento html
             card.innerHTML =
                 `<img id='img-dragon' src= '${character.image}'>
                  <h2>${character.name}</h2>
                  <p>Raza: ${character.race}</p>
-                 <p>Ki: ${character.ki}</p> `
-                ;
-            container.appendChild(card); // permite crear un nuevo elemento o nodo a la lista, es decir es el que va a hacer que las tarjetas se ordenen en forma de lista
-        });
-    })*/
-
-     function showResult(results){
-        console.log('esto trae el results ==>', results);
-        container.innerHTML = "";
-        results.forEach( characterFilter => {
-            const card = document.createElement("div");
-            card.classList.add('character-border');
-            card.innerHTML = `
-                 <img id='img-dragon' src= '${characterFilter.image}'>
-                 <h2>${characterFilter.name}</h2>
-                 <p>Raza: ${characterFilter.race}</p>
-                 <p>Ki: ${characterFilter.ki}</p>`;
+                 <p>Ki: ${character.ki}</p> `;
             card.addEventListener('click', () => {
-                showDescriptionCharacter(characterFilter);
-            })
-            container.appendChild(card);     
-        }) 
-    }
+                //showDescriptionCharacter(characterFilter); // aqui va a ir lo que falta para que muestre la descripcion del personaje
+            })    
+            container.appendChild(card);
+        });
+     } 
 
-    async function filterCharacter(){
+     async function filterCharacter(){
         const inputSearch = document.getElementById('input-search');
         inputSearch.addEventListener('input',async (evento) => {
             //const card = document.createElement("div");
@@ -60,6 +43,23 @@ const inputSearch = document.getElementById('input-search');
         })
     }
 
+     function showResult(results){
+        console.log('esto trae el results ==>', results);
+        container.innerHTML = "";
+        results.forEach( characterFilter => {
+            const card = document.createElement("div");
+            card.classList.add('character-border');
+            card.innerHTML = `
+                 <img id='img-dragon' src= '${characterFilter.image}'>
+                 <h2>${characterFilter.name}</h2>
+                 <p>Raza: ${characterFilter.race}</p>
+                 <p>Ki: ${characterFilter.ki}</p>`;
+            card.addEventListener('click', () => {
+                showDescriptionCharacter(characterFilter);
+            })
+            container.appendChild(card);     
+        }) 
+    }
 
     function showDescriptionCharacter(value){
         const containerModal = document.getElementById('main-modal');
@@ -74,7 +74,6 @@ const inputSearch = document.getElementById('input-search');
 
     function changePage() {
         const pagesBtn = document.querySelectorAll('.btn-page'); // Este querySelectorAll trae un array con todo los botones que coincidan con la clase que esta asociada a ellos
-       // console.log(pagesBtn);
         pagesBtn.forEach(currentBtn => {
             currentBtn.addEventListener('click',async (event) => {
                 //console.log(event.currentTarget.dataset.page);
@@ -82,16 +81,17 @@ const inputSearch = document.getElementById('input-search');
                 const DRAPI = `https://dragonball-api.com/api/characters?page=${currentPage}&limit=20`;
                 const response = await fetch(DRAPI);
                 const dataResponsePage = await response.json();
-                console.log('Eso trajo nuestra respuesta de pagina =>', dataResponsePage);
+                console.log('Eso trajo nuestra respuesta de pagina =>', dataResponsePage.items);
+                const responsePage = dataResponsePage.items;
                 
-                
+                showResult(responsePage);
             })
             
-        })
-        
-            
+        }) 
             
     }
+
+    getCharacters();
 
     
 
