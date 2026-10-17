@@ -16,7 +16,7 @@ const inputSearch = document.getElementById('input-search');
                  <p>Raza: ${character.race}</p>
                  <p>Ki: ${character.ki}</p> `;
             card.addEventListener('click', () => {
-                //showDescriptionCharacter(characterFilter); // aqui va a ir lo que falta para que muestre la descripcion del personaje
+                showDescriptionCharacter(character); // aqui va a ir lo que falta para que muestre la descripcion del personaje
             })    
             container.appendChild(card);
         });
@@ -35,9 +35,8 @@ const inputSearch = document.getElementById('input-search');
                  showResult(resultFilter);
             } else {
                 console.log('entra al else');
-                const arrayVacio = [];
-                
-                showResult(arrayVacio);
+                container.innerHTML = ''; // aqui estoy vaciando el contenedor que va a traer las cards
+                getCharacters(); // y aqui se llama esta funcion para volver a traer todos los personajes 
             }
             
         })
