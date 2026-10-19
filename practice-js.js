@@ -70,27 +70,28 @@ const inputSearch = document.getElementById('input-search');
             containerModal.style.display = 'none';
         })  
     }
-
-    function changePage() {
-        const pagesBtn = document.querySelectorAll('.btn-page'); // Este querySelectorAll trae un array con todo los botones que coincidan con la clase que esta asociada a ellos
-        pagesBtn.forEach(currentBtn => {
-            currentBtn.addEventListener('click',async (event) => {
-                //console.log(event.currentTarget.dataset.page);
-                const currentPage = event.currentTarget.dataset.page; // el currentTarget permite especificar o determinar cual es el boton al que estamos haciendo click
-                const DRAPI = `https://dragonball-api.com/api/characters?page=${currentPage}&limit=20`;
-                const response = await fetch(DRAPI);
-                const dataResponsePage = await response.json();
-                console.log('Eso trajo nuestra respuesta de pagina =>', dataResponsePage.items);
-                const responsePage = dataResponsePage.items;
-                
-                showResult(responsePage);
+    
+    function registerEventsButton() { // Esta es la funcion que registra los eventos.
+        const pagesBtn = document.querySelectorAll('.btn-page');
+        pagesBtn.forEach( currentBtn =>{
+            currentBtn.addEventListener('click', (event)=>{
+                const currentEventPage = event.currentTarget.dataset.page;
+                changesPages(currentEventPage);
             })
-            
-        }) 
-            
+        })
+    }
+
+    async function changesPages(currentPageDragon) { // OJO ESTE NUEVA FUNCION ES SOLO UNA PARTE, FALTA CREAR LA FUNCION QUE REGISTRE O TOME LOS EVENTOS DE DAR CLICK AL BOTON DE CAMBIAR PAGINA
+        const DRAGONBALLAPI = `https://dragonball-api.com/api/characters?page=${currentPageDragon}&limit=20`;
+        const response = await fetch(DRAGONBALLAPI);
+        const dataResponseP = await response.json();
+        const responsePageItems = dataResponseP.items;
+        showResult(responsePageItems);
+        
     }
 
     getCharacters();
+    registerEventsButton();
 
     
 
