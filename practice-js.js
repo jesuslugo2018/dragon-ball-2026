@@ -1,5 +1,4 @@
 const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=30';
-
 const btnDragon = document.getElementById('btn-dragon');
 const container = document.getElementById('dragon-ball-container');
 const inputSearch = document.getElementById('input-search');
@@ -22,10 +21,9 @@ const inputSearch = document.getElementById('input-search');
         });
      } 
 
-     async function filterCharacter(){
+     async function filterCharacter() {
         const inputSearch = document.getElementById('input-search');
         inputSearch.addEventListener('input',async (evento) => {
-            //const card = document.createElement("div");
             const response = await fetch(DRAGONAPI);
             const dataResponse = await response.json();
             const dataResponseArray = dataResponse.items;
@@ -34,15 +32,16 @@ const inputSearch = document.getElementById('input-search');
                 const resultFilter = dataResponseArray.filter( items => items.name.toLowerCase().includes(textUser));
                  showResult(resultFilter);
             } else {
-                console.log('entra al else');
-                container.innerHTML = ''; // aqui estoy vaciando el contenedor que va a traer las cards
-                getCharacters(); // y aqui se llama esta funcion para volver a traer todos los personajes 
+
+                const resultFil = dataResponseArray.filter( items => items.name.toLowerCase().includes(textUser));
+                container.innerHTML = ''; // aqui estoy vaciando el contenedor que va a traer las cards 
+                showResult(resultFil); 
             }
             
         })
     }
 
-     function showResult(results){
+     function showResult(results) {
         console.log('esto trae el results ==>', results);
         container.innerHTML = "";
         results.forEach( characterFilter => {
@@ -60,7 +59,7 @@ const inputSearch = document.getElementById('input-search');
         }) 
     }
 
-    function showDescriptionCharacter(value){
+    function showDescriptionCharacter(value) {
         const containerModal = document.getElementById('main-modal');
         const descriptionText = document.getElementById('description-character');
         const closeModalButton = document.getElementById('close-modal');
