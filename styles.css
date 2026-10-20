@@ -3,7 +3,7 @@ body {
     color: black;
     background-attachment: fixed;
     animation: fadeIn 1s ease-in-out;
-    background-image: url(../landing-page-dragon-ball/esferas.jpg);
+    background-image: url(../landing-page-dragon-ball/kamecasa.jpg);
 }
 
 header{
@@ -14,48 +14,12 @@ header{
 
 }
 
-
-.stars {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
-    animation: twinkle 3s ease-in-out infinite alternate;
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
-}
-
-.pokemonBtn:hover {
-    background-color: aqua;
-}
-
-.pokemonBtn:active {
-    background-color: yellowgreen;
-}
-
 div > p {
     font-size: 24px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.bio .bold {
-    color: blueviolet;
-}
 
-.hello1 .bold{
-    color: green;
-}
-@keyframes twinkle {
-     
-    0% {
-        opacity: 0.5;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 0.5;
-    }
-}
 
 h1 {
     color: orangered;
@@ -67,15 +31,6 @@ h1 {
     color: chocolate;
 }
 
-#img-rick {
-    border: 2px solid blueviolet;
-}
-
-.button-green {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: green;
-    color: white;
-}
 
 #img-dragon {
     width: 150px;
@@ -92,7 +47,6 @@ h1 {
 .character-border{
     border: 3px solid orange;
     border-radius: 10px;
-    background-color: azure;
     padding-left: 20px;
     padding-top: 10px;
 }
@@ -135,10 +89,11 @@ h1 {
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid burlywood;
+    border-radius: 10px;
     width: 30%;
     margin: 0 auto;
-    background-color: white;
+    background-color: transparent;
     
 }
 
@@ -156,12 +111,11 @@ h1 {
 
 .pagination-dragon{
     display: flex;
-    position: fixed;
-    bottom: 0;
-    right: 10px;
-    top: auto;
-    text-align: center;
     list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto;
 }
 
 .pagination-dragon li a  {

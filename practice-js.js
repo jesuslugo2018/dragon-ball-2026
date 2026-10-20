@@ -1,7 +1,9 @@
-const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=30';
+const DRAGONAPI = 'https://dragonball-api.com/api/characters?limit=20';
+const DRAGONWHOLECHARACTERS = 'https://dragonball-api.com/api/characters?limit=60';
 const btnDragon = document.getElementById('btn-dragon');
 const container = document.getElementById('dragon-ball-container');
 const inputSearch = document.getElementById('input-search');
+const limitCharacter = 20;
 
      async function getCharacters() {
         const response = await fetch(DRAGONAPI);
@@ -24,7 +26,7 @@ const inputSearch = document.getElementById('input-search');
      async function filterCharacter() {
         const inputSearch = document.getElementById('input-search');
         inputSearch.addEventListener('input',async (evento) => {
-            const response = await fetch(DRAGONAPI);
+            const response = await fetch(DRAGONWHOLECHARACTERS);
             const dataResponse = await response.json();
             const dataResponseArray = dataResponse.items;
             const textUser = evento.target.value.toLowerCase();
@@ -81,7 +83,7 @@ const inputSearch = document.getElementById('input-search');
     }
 
     async function changesPages(currentPageDragon) { // OJO ESTE NUEVA FUNCION ES SOLO UNA PARTE, FALTA CREAR LA FUNCION QUE REGISTRE O TOME LOS EVENTOS DE DAR CLICK AL BOTON DE CAMBIAR PAGINA
-        const DRAGONBALLAPI = `https://dragonball-api.com/api/characters?page=${currentPageDragon}&limit=20`;
+        const DRAGONBALLAPI = `https://dragonball-api.com/api/characters?page=${currentPageDragon}&limit=${limitCharacter}`;
         const response = await fetch(DRAGONBALLAPI);
         const dataResponseP = await response.json();
         const responsePageItems = dataResponseP.items;
